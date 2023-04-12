@@ -772,7 +772,9 @@ services:
       - sourcegraph
     restart: always
     # Default configurations are shipped in '/etc/otel-collector/configs/'
-    command: ['--config', '/etc/otel-collector/configs/logging.yaml']
+    environment:
+      - 'JAEGER_HOST=jaeger'
+    command: ['--config', '/etc/otel-collector/config.yaml']
     volumes:
       - '../otel-collector/config.yaml:/etc/otel-collector/config.yaml'
 

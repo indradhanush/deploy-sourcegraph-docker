@@ -33,7 +33,7 @@ services:
   otel-collector:
     environment:
       - JAEGER_HOST=jaeger
-    command: ['--config', '/etc/otel-collector/configs/jaeger.yaml']
+    command: ['--config', '/etc/otel-collector/config.yaml']
 
   # Let frontend proxy to Jaeger interface
   sourcegraph-frontend-0:
