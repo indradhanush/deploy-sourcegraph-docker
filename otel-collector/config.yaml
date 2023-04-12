@@ -8,14 +8,6 @@ receivers:
       http: # port 4318
 
 exporters:
-  logging:
-    # If you want to see the contents of spans in output, you can set logLevel to 'debug',
-    # but you probably want to configure another exporter - this is mostly here becasue
-    # we're not allowed to configure no exporters.
-    loglevel: debug
-    sampling_initial: 5
-    sampling_thereafter: 200
-
   # Add your exporter(s) configuration here. For each exporter, make sure it is enabled
   # in the service configuration below.
   # Refer to our OpenTelemetry docs for information on how to configure different exporters:
@@ -41,9 +33,8 @@ service:
   pipelines:
     traces:
       exporters:
-        - jaeger
         # Add the name of your exporter(s) here, e.g.:
-        - logging
+        - jaeger
       receivers:
         - otlp # Do not remove this receiver
   extensions:

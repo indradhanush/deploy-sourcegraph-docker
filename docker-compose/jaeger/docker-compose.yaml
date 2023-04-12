@@ -30,10 +30,10 @@ services:
       - 'SAMPLING_STRATEGIES_FILE=/etc/jaeger/sampling_strategies.json'
 
   # Configure collector to send traces to Jaeger
-  otel-collector:
-    environment:
-      - JAEGER_HOST=jaeger
-    command: ['--config', '/etc/otel-collector/config.yaml']
+  # otel-collector:
+  #   environment:
+  #     - JAEGER_HOST=jaeger
+  #   command: ['--config', '/etc/otel-collector/config.yaml']
 
   # Let frontend proxy to Jaeger interface
   sourcegraph-frontend-0:
